@@ -1,0 +1,44 @@
+﻿@model IEnumerable<BookStore.Models.Book>
+@{
+}
+
+<div class="container">
+    <a href="/Book/Add" class="btn btn-outline-warning">Add new book</a>
+</div>
+
+<div class="container pt-10">
+    <div>
+        <h2>All Books</h2>
+        <table class="table table-stripped table-bordered">
+            <thead>
+                <tr>
+                    <th>Book name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Decription</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Category</td>
+                        <td>@item.Price</td>
+                        <td>@item.Description</td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="/Book/Update?id=@item.Id">Edit</a>
+                            <a class="btn btn-outline-danger" onclick="return window.confirm('Are you sure')" href="/Book/Delete?id=@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
